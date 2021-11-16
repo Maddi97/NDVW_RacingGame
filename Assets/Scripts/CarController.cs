@@ -7,7 +7,7 @@ public class CarController : MonoBehaviour
 
     public Rigidbody theRB;
 
-    public float forwardAcc=3f, reverseAcc=2f, maxSpeed=30f, turnStrenght=10, gravityForce = 10f, dragOnGround = 3f;
+    public float forwardAcc=3f, reverseAcc=2f, maxSpeed=100f, turnStrenght=10, gravityForce = 10f, dragOnGround = 3f;
 
     public KeyCode switch_to_easy1 = KeyCode.P;
     public KeyCode switch_to_easy2 = KeyCode.O;
@@ -17,8 +17,8 @@ public class CarController : MonoBehaviour
     public Quaternion complexStart_rota = new Quaternion(0f, 0f, 0f, 0);
     public Vector3 simpleStart1_pos  = new Vector3(-150.2f, 0.641f, 30.7f);
     public Quaternion simpleStart1_rota  = new Quaternion(0f, 0f, 0f, 0);
-    public Vector3 simpleStart2_pos  = new Vector3(-360.2f, 0.641f, 55f);
-    public Quaternion simpleStart2_rota  = new Quaternion(0f, 180f, 0f, 0);
+    public Vector3 simpleStart2_pos  = new Vector3(-360.1f, 0.641f, 3.3f);
+    public Quaternion simpleStart2_rota  = new Quaternion(0f, 0f, 0f, 0);
 
     
     private float speedInput, turnInput;
