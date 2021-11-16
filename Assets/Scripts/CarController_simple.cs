@@ -22,16 +22,16 @@ public class CarController_simple : MonoBehaviour
     public float maxWheelTurn = 25f;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         theRB.transform.parent = null;
     }
 
-    void steer(float input){
+    public void steer(float input){
         turnInput = input;
     }
 
-    void accelerate(float input){
+    public void accelerate(float input){
         speedInput = input*Acc*1000f;
     }
 
@@ -39,8 +39,8 @@ public class CarController_simple : MonoBehaviour
     void Update()
     {
 
-        steer(Input.GetAxis("Horizontal"));
-        accelerate(Input.GetAxis("Vertical"));
+        //steer(Input.GetAxis("Horizontal"));
+        //accelerate(Input.GetAxis("Vertical"));
 
         if(grounded){
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput*turnStrenght*Time.deltaTime * Input.GetAxis("Vertical") , 0f));
@@ -74,5 +74,7 @@ public class CarController_simple : MonoBehaviour
             theRB.AddForce(Vector3.up * -gravityForce* 100f);
         }
     }
+
+
 }
 
