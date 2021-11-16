@@ -7,7 +7,7 @@ public class CarController_simple : MonoBehaviour
 
     public Rigidbody theRB;
 
-    public float forwardAcc=3f, reverseAcc=2f, maxSpeed=100f, turnStrenght=50, gravityForce = 10f, dragOnGround = 3f;
+    public float Acc=3f, maxSpeed=100f, turnStrenght=50, gravityForce = 10f, dragOnGround = 3f;
 
 
     
@@ -27,20 +27,21 @@ public class CarController_simple : MonoBehaviour
         theRB.transform.parent = null;
     }
 
+    void steer(float input){
+        turnInput = input;
+    }
+
+    void accelerate(float input){
+        speedInput = input*Acc*1000f;
+    }
+
     // Update is called once per frame
     void Update()
     {
 
+        steer(Input.GetAxis("Horizontal"));
+        accelerate(Input.GetAxis("Vertical"));
 
-        speedInput = 0f;
-        if(Input.GetAxis("Vertical") > 0){
-            speedInput = Input.GetAxis("Vertical") *forwardAcc *1000f;
-        }
-        else if(Input.GetAxis("Vertical") < 0){
-            speedInput = Input.GetAxis("Vertical") * reverseAcc * 1000f;
-        }
-
-        turnInput = Input.GetAxis("Horizontal");
         if(grounded){
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput*turnStrenght*Time.deltaTime * Input.GetAxis("Vertical") , 0f));
         }
@@ -49,6 +50,7 @@ public class CarController_simple : MonoBehaviour
         rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, turnInput*maxWheelTurn, rightFrontWheel.localRotation.eulerAngles.z);
 
         transform.position = theRB.transform.position;
+        //speedInput = 0f;
     }
 
     private void FixedUpdate(){
