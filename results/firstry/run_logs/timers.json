@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1637095609",
+        "python_version": "3.9.7 (default, Sep  3 2021, 12:37:55) \n[Clang 12.0.5 (clang-1205.0.22.9)]",
+        "command_line_arguments": "/usr/local/bin/mlagents-learn /Users/maddi/Workspace/RacingGame/RacingGame/Kart Agent.yaml --run-id=firstry --force",
+        "mlagents_version": "0.27.0",
+        "mlagents_envs_version": "0.27.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.8.1",
+        "numpy_version": "1.19.4",
+        "end_time_seconds": "1637095626"
+    },
+    "total": 17.417037284000003,
+    "count": 1,
+    "self": 0.007957526000005544,
+    "children": {
+        "run_training.setup": {
+            "total": 0.06124080100000007,
+            "count": 1,
+            "self": 0.06124080100000007
+        },
+        "TrainerController.start_learning": {
+            "total": 17.347838956999997,
+            "count": 1,
+            "self": 7.308100000003037e-05,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 17.347651240999998,
+                    "count": 1,
+                    "self": 17.347651240999998
+                },
+                "TrainerController._save_models": {
+                    "total": 0.00011463499999919691,
+                    "count": 1,
+                    "self": 0.00011463499999919691
+                }
+            }
+        }
+    }
+}
