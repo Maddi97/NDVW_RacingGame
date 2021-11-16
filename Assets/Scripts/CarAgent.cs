@@ -19,7 +19,7 @@ public class CarAgent : Agent
     //Called each time it has timed-out or has reached the goal
     public override void OnEpisodeBegin()
     {
-        _checkpointManager.ResetCheckpoints();
+        //_checkpointManager.ResetCheckpoints();
         // _kartController.Respawn();
     }
 
@@ -28,9 +28,9 @@ public class CarAgent : Agent
     //Collecting extra Information that isn't picked up by the RaycastSensors
     public override void CollectObservations(VectorSensor sensor)
     {
-        Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
-        sensor.AddObservation(diff / 20f);
-        AddReward(0.001f);
+        //Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
+        //sensor.AddObservation(diff / 20f);
+        //AddReward(0.001f);
     }
 
     //Processing the actions received
