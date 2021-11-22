@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarController_simple : MonoBehaviour
 {
-
+    private SpawnPointManager _spawnPointManager;
     public Rigidbody theRB;
 
     public float Acc=3f, maxSpeed=100f, turnStrenght=50, gravityForce = 10f, dragOnGround = 3f;
@@ -21,10 +21,22 @@ public class CarController_simple : MonoBehaviour
     public Transform leftFrontWheel, rightFrontWheel;
     public float maxWheelTurn = 25f;
 
+    //copied from the dude
+    public void Awake()
+    {
+        _spawnPointManager = FindObjectOfType<SpawnPointManager>();
+    }
+
     // Start is called before the first frame update
     public void Start()
     {
         theRB.transform.parent = null;
+    }
+    public void Respawn()
+    {
+        Vector3 pos = _spawnPointManager.SelectRandomSpawnpoint();
+        theRB.MovePosition(pos);
+        transform.position = pos - new Vector3(0, 0.4f, 0);
     }
 
     public void steer(float input){

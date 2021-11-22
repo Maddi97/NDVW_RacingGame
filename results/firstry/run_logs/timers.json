@@ -2,7 +2,7 @@
     "name": "root",
     "metadata": {
         "timer_format_version": "0.1.0",
-        "start_time_seconds": "1637095609",
+        "start_time_seconds": "1637574405",
         "python_version": "3.9.7 (default, Sep  3 2021, 12:37:55) \n[Clang 12.0.5 (clang-1205.0.22.9)]",
         "command_line_arguments": "/usr/local/bin/mlagents-learn /Users/maddi/Workspace/RacingGame/RacingGame/Kart Agent.yaml --run-id=firstry --force",
         "mlagents_version": "0.27.0",
@@ -10,31 +10,36 @@
         "communication_protocol_version": "1.5.0",
         "pytorch_version": "1.8.1",
         "numpy_version": "1.19.4",
-        "end_time_seconds": "1637095626"
+        "end_time_seconds": "1637574431"
     },
-    "total": 17.417037284000003,
+    "total": 26.166284589,
     "count": 1,
-    "self": 0.007957526000005544,
+    "self": 0.007350326000000962,
     "children": {
         "run_training.setup": {
-            "total": 0.06124080100000007,
+            "total": 0.07071983599999987,
             "count": 1,
-            "self": 0.06124080100000007
+            "self": 0.07071983599999987
         },
         "TrainerController.start_learning": {
-            "total": 17.347838956999997,
+            "total": 26.088214427,
             "count": 1,
-            "self": 7.308100000003037e-05,
+            "self": 0.0005233210000028521,
             "children": {
                 "TrainerController._reset_env": {
-                    "total": 17.347651240999998,
+                    "total": 26.087669835,
                     "count": 1,
-                    "self": 17.347651240999998
+                    "self": 26.087669835
+                },
+                "trainer_threads": {
+                    "total": 1.3689999995847302e-06,
+                    "count": 1,
+                    "self": 1.3689999995847302e-06
                 },
                 "TrainerController._save_models": {
-                    "total": 0.00011463499999919691,
+                    "total": 1.9901999998239717e-05,
                     "count": 1,
-                    "self": 0.00011463499999919691
+                    "self": 1.9901999998239717e-05
                 }
             }
         }
