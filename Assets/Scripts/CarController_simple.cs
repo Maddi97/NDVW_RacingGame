@@ -60,7 +60,7 @@ public class CarController_simple : MonoBehaviour
         if(grounded){
             //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput*turnStrenght*Time.deltaTime * Input.GetAxis("Vertical") , 0f));
             Debug.Log(turnInput);
-            transform.rotation = Quaternion.Euler(new Vector3(0f, turnInput * 60f, 0f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * 60f, 0f));
         }
 
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, (turnInput*maxWheelTurn)-180, leftFrontWheel.localRotation.eulerAngles.z);
