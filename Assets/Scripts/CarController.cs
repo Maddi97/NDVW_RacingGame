@@ -31,6 +31,8 @@ public class CarController : MonoBehaviour
     public Transform leftFrontWheel, rightFrontWheel;
     public float maxWheelTurn = 25f;
 
+    public Countdown countDown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,10 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (countDown.notFinished())
+        {
+            return;
+        }
         if(Input.GetKey(switch_to_easy1)){
             theRB.transform.position = simpleStart1_pos;
             transform.rotation = simpleStart1_rota;
