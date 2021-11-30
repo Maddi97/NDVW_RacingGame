@@ -53,14 +53,14 @@ public class CheckpointManager : MonoBehaviour
         if (CurrentCheckpointIndex >= Checkpoints.Count)
         {
             carAgent.AddReward(0.5f);
-            UnityEngine.Debug.log("rewarded and ended episode");
+            UnityEngine.Debug.Log("rewarded and ended episode");
             carAgent.EndEpisode();
         }
         else
         {
             carAgent.AddReward((0.5f) / Checkpoints.Count);
             SetNextCheckpoint();
-            UnityEngine.Debug.log("Setting new checkpoint, rewarded: ");
+            UnityEngine.Debug.Log("Setting new checkpoint, rewarded: ");
         }
     }
 
