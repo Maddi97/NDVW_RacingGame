@@ -35,7 +35,7 @@ public class CarAgent : Agent
         Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
         sensor.AddObservation(diff / 20f);
         float r = _carController.theRB.velocity.magnitude*0.01f;
-        if(_carController.theRB.velocity.magnitude < 0.1){
+        if(_carController.theRB.velocity.magnitude < 1){
             r = -0.5f;
             total_speed_penalty = total_speed_penalty + r;
         }
