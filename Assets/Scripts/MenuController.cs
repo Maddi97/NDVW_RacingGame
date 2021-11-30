@@ -13,5 +13,6 @@ public class MenuController : MonoBehaviour
     }
     public void ButtonQuit(){
         Application.Quit();
+        System.Diagnostics.Debug.WriteLine("This is a log");
     } 
 }
