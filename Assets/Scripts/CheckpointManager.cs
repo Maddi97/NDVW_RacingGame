@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    public float MaxTimeToReachNextCheckpoint = 1000f;
-    public float TimeLeft = 10000f;
+    public float MaxTimeToReachNextCheckpoint = 60f;
+    public float TimeLeft = 60f;
     
     public CarAgent carAgent;
     public Checkpoint nextCheckPointToReach;
