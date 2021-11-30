@@ -11,7 +11,7 @@ public class CarAgent : Agent
     private CarController_simple _carController;
     public float total_speed_reward;
     public float total_speed_penalty;
-
+    private float old_speed;
     //called once at the start
     public override void Initialize()
     {
@@ -35,7 +35,8 @@ public class CarAgent : Agent
         Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
         sensor.AddObservation(diff / 20f);
         float r = _carController.theRB.velocity.magnitude*0.01f;
-        if(_carController.theRB.velocity.magnitude < 1){
+        if(_carController.theRB.velocity.magnitude < 0.4 * old_speed)
+        {
             r = -0.5f;
             total_speed_penalty = total_speed_penalty + r;
         }

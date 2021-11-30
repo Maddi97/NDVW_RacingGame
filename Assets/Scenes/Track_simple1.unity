@@ -5583,7 +5583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &870819479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5671,6 +5671,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   _checkpointManager: {fileID: 680156761}
+  total_speed_reward: 0
+  total_speed_penalty: 0
 --- !u!114 &870819483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5693,9 +5695,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: d9ee60b63ed85478a94915aea6879346, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: KartAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -8213,7 +8215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1191238411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8301,6 +8303,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   _checkpointManager: {fileID: 1267342818}
+  total_speed_reward: 0
+  total_speed_penalty: 0
 --- !u!114 &1191238415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8323,9 +8327,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: d9ee60b63ed85478a94915aea6879346, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: KartAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -10561,6 +10565,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   _checkpointManager: {fileID: 889515446}
+  total_speed_reward: 0
+  total_speed_penalty: 0
 --- !u!4 &1584411535
 Transform:
   m_ObjectHideFlags: 0
@@ -10628,7 +10634,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: KartAgent
   TeamId: 0
   m_UseChildSensors: 1
