@@ -80,7 +80,14 @@ public class CheckpointManager : MonoBehaviour
         }
         }
 
-        private void SetNextCheckpoint()
+    public void WallCollided(Wall wall)
+    {
+        Debug.Log("Penalty for hitting Wall");
+        carAgent.AddReward(-1f);
+
+    }
+
+    private void SetNextCheckpoint()
     {
         if (Checkpoints.Count > 0)
         {
