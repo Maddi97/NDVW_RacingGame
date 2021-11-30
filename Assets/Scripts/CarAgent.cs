@@ -30,7 +30,7 @@ public class CarAgent : Agent
     {
         Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
         sensor.AddObservation(diff / 20f);
-        AddReward(-0.001f);
+        AddReward(_carController.theRB.velocity.magnitude);
     }
 
     //Processing the actions received
