@@ -44,7 +44,10 @@ public class CarController_simple : MonoBehaviour
     }
 
     public void accelerate(float input){
-        speedInput = input*Acc*1000f;
+        if(input > 0){
+            speedInput = input*Acc*1000f;
+        }
+        
     }
 
     // Update is called once per frame
@@ -55,7 +58,8 @@ public class CarController_simple : MonoBehaviour
         //accelerate(Input.GetAxis("Vertical"));
 
         if(grounded){
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput*turnStrenght*Time.deltaTime * Input.GetAxis("Vertical") , 0f));
+            //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput*turnStrenght*Time.deltaTime * Input.GetAxis("Vertical") , 0f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * 10f, 0f));
         }
 
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, (turnInput*maxWheelTurn)-180, leftFrontWheel.localRotation.eulerAngles.z);

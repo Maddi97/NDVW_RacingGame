@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    public float MaxTimeToReachNextCheckpoint = 30f;
-    public float TimeLeft = 30f;
+    public float MaxTimeToReachNextCheckpoint = 60f;
+    public float TimeLeft = 60f;
     
     public CarAgent carAgent;
     public Checkpoint nextCheckPointToReach;
@@ -14,8 +14,11 @@ public class CheckpointManager : MonoBehaviour
     private int CurrentCheckpointIndex;
     private List<Checkpoint> Checkpoints;
     private Checkpoint lastCheckpoint;
+    private bool reachedAllCheckpoints = false;
 
-    public event Action<Checkpoint> reachedCheckpoint; 
+    public event Action<Checkpoint> reachedCheckpoint;
+
+    public int laps = 0;
 
     void Start()
     {
@@ -39,27 +42,49 @@ public class CheckpointManager : MonoBehaviour
         {
             carAgent.AddReward(-1f);
             carAgent.EndEpisode();
+            UnityEngine.Debug.Log("Ended episode because of time");
+
         }
     }
 
     public void CheckPointReached(Checkpoint checkpoint)
     {
         if (nextCheckPointToReach != checkpoint) return;
-        
+
+
         lastCheckpoint = Checkpoints[CurrentCheckpointIndex];
         reachedCheckpoint?.Invoke(checkpoint);
         CurrentCheckpointIndex++;
 
         if (CurrentCheckpointIndex >= Checkpoints.Count)
         {
+            reachedAllCheckpoints = true;
             carAgent.AddReward(0.5f);
+            UnityEngine.Debug.Log("rewarded and ended episode");
             carAgent.EndEpisode();
         }
         else
         {
             carAgent.AddReward((0.5f) / Checkpoints.Count);
             SetNextCheckpoint();
+            UnityEngine.Debug.Log("Setting new checkpoint, rewarded: ");
         }
+    }
+
+    public void FinishLineReached(FinishLine finish)
+    {
+        if (reachedAllCheckpoints == true)
+        {
+            reachedAllCheckpoints = false;
+            this.laps = laps + 1;
+        }
+        }
+
+    public void WallCollided(Wall wall)
+    {
+        Debug.Log("Penalty for hitting Wall");
+        carAgent.AddReward(-1f);
+
     }
 
     private void SetNextCheckpoint()
