@@ -30,9 +30,9 @@ public class CarAgent : Agent
     {
         Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
         sensor.AddObservation(diff / 20f);
-        r = _carController.theRB.velocity.magnitude*0.01;
+        float r = _carController.theRB.velocity.magnitude*0.01f;
         AddReward(r);
-        debug.log("Added reward for magnitude: " + r);
+        UnityEngine.Debug.log("Added reward for magnitude: " + r);
     }
 
     //Processing the actions received
