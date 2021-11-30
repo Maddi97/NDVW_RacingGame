@@ -39,6 +39,8 @@ public class CheckpointManager : MonoBehaviour
         {
             carAgent.AddReward(-1f);
             carAgent.EndEpisode();
+            UnityEngine.Debug.Log("Ended episode because of time");
+
         }
     }
 
