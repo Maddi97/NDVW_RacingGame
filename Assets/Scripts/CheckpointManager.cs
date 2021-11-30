@@ -42,6 +42,8 @@ public class CheckpointManager : MonoBehaviour
         {
             carAgent.AddReward(-1f);
             carAgent.EndEpisode();
+            UnityEngine.Debug.Log("Ended episode because of time");
+
         }
     }
 
@@ -58,12 +60,14 @@ public class CheckpointManager : MonoBehaviour
         {
             reachedAllCheckpoints = true;
             carAgent.AddReward(0.5f);
+            UnityEngine.Debug.Log("rewarded and ended episode");
             carAgent.EndEpisode();
         }
         else
         {
             carAgent.AddReward((0.5f) / Checkpoints.Count);
             SetNextCheckpoint();
+            UnityEngine.Debug.Log("Setting new checkpoint, rewarded: ");
         }
     }
 
