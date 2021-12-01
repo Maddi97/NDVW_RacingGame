@@ -11,7 +11,7 @@ public class CarController_simple : MonoBehaviour
 
 
     
-    private float speedInput, turnInput;
+    public float speedInput, turnInput;
     private bool grounded;
 
     public LayerMask whatIsGround;
@@ -34,8 +34,11 @@ public class CarController_simple : MonoBehaviour
     }
     public void Respawn()
     {
-        Vector3 pos = _spawnPointManager.SelectRandomSpawnpoint();
+        Vector3 pos = _spawnPointManager.SelectRandomSpawnpoint().Item1;
+        Quaternion rotation = _spawnPointManager.SelectRandomSpawnpoint().Item2;
         theRB.MovePosition(pos);
+        theRB.MoveRotation(rotation);
+        transform.rotation = rotation;
         transform.position = pos - new Vector3(0, 0.4f, 0);
     }
 
@@ -45,7 +48,7 @@ public class CarController_simple : MonoBehaviour
 
     public void accelerate(float input){
         if(input > 0){
-            speedInput = input*Acc*1000f;
+            speedInput = input*Acc*500f;
         }
         
     }

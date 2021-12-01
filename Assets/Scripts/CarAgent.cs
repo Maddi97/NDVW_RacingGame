@@ -8,7 +8,7 @@ using UnityEngine;
 public class CarAgent : Agent
 {
     public CheckpointManager _checkpointManager;
-    private CarController_simple _carController;
+    public CarController_simple _carController;
     public float total_speed_reward;
     public float total_speed_penalty;
     private float old_speed;
@@ -43,7 +43,7 @@ public class CarAgent : Agent
         else{
             total_speed_reward = total_speed_reward + r;
         }
-        AddReward(r);
+        AddReward(r/1000);
         UnityEngine.Debug.Log("total_speed_reward = : " + total_speed_reward);
         UnityEngine.Debug.Log("total_speed_penaly = : " + total_speed_penalty);
     }

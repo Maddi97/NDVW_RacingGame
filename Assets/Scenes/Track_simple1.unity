@@ -6480,6 +6480,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   _checkpointManager: {fileID: 680156761}
+  _carController: {fileID: 0}
   total_speed_reward: 0
   total_speed_penalty: 0
 --- !u!114 &870819483
@@ -6530,6 +6531,8 @@ MonoBehaviour:
   turnStrenght: 50
   gravityForce: 10
   dragOnGround: 3
+  speedInput: 0
+  turnInput: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -9245,6 +9248,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   _checkpointManager: {fileID: 1267342818}
+  _carController: {fileID: 0}
   total_speed_reward: 0
   total_speed_penalty: 0
 --- !u!114 &1191238415
@@ -9295,6 +9299,8 @@ MonoBehaviour:
   turnStrenght: 50
   gravityForce: 10
   dragOnGround: 3
+  speedInput: 0
+  turnInput: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -9812,7 +9818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxTimeToReachNextCheckpoint: 30
-  TimeLeft: 30
+  TimeLeft: 5
   carAgent: {fileID: 1191238414}
   nextCheckPointToReach: {fileID: 67246921}
   laps: 0
@@ -12024,6 +12030,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   _checkpointManager: {fileID: 889515446}
+  _carController: {fileID: 0}
   total_speed_reward: 0
   total_speed_penalty: 0
 --- !u!4 &1584411535
@@ -12061,6 +12068,8 @@ MonoBehaviour:
   turnStrenght: 50
   gravityForce: 10
   dragOnGround: 3
+  speedInput: 0
+  turnInput: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -12093,7 +12102,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: KartAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -12111,7 +12120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
+  DecisionPeriod: 3
   TakeActionsBetweenDecisions: 1
 --- !u!114 &1584411539
 MonoBehaviour:

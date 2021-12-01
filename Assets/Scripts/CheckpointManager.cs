@@ -83,7 +83,9 @@ public class CheckpointManager : MonoBehaviour
     public void WallCollided(Wall wall)
     {
         Debug.Log("Penalty for hitting Wall");
-        carAgent.AddReward(-1f);
+        float reward = -0.01f;
+        carAgent.AddReward(reward);
+        carAgent._carController.theRB.velocity = carAgent._carController.theRB.velocity * 0.2f;
 
     }
 
