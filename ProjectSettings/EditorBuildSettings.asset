@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Track.unity
     guid: a9cb68ce863861d4f8ece48d1ee45c55
+  - enabled: 1
+    path: Assets/Scenes/FinishMenu.unity
+    guid: 7d3144d53e3208243b87c02a0dbc3879
   m_configObjects: {}
