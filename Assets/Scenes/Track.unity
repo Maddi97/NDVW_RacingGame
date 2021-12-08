@@ -7718,7 +7718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &814504804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8891,6 +8891,7 @@ GameObject:
   - component: {fileID: 889515443}
   - component: {fileID: 889515442}
   - component: {fileID: 889515441}
+  - component: {fileID: 889515446}
   m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
@@ -8990,6 +8991,19 @@ Transform:
   m_Father: {fileID: 1584411535}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &889515446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889515440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f37d48badf4b2a48a87084f7a644567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Car: {fileID: 1584411533}
 --- !u!4 &902662095 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7593150849052836663, guid: d0ce9845d62a3b84a8f9832055865db9,
@@ -9788,24 +9802,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b2620aa437ea446979d8ca8fd2b04dae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7697938ed68c74a7db84fb48e762cd95, type: 3}
---- !u!1 &974458383 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1460995544745083362, guid: 7697938ed68c74a7db84fb48e762cd95,
-    type: 3}
-  m_PrefabInstance: {fileID: 974458382}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &974458384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974458383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9c243e3da314c26af632ceae4622a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &974458385 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1435699791740439249, guid: 7697938ed68c74a7db84fb48e762cd95,
@@ -16767,6 +16763,7 @@ MonoBehaviour:
   rightFrontWheel: {fileID: 1334038995}
   maxWheelTurn: 25
   countDown: {fileID: 499933968}
+  time: 0
 --- !u!4 &1584411535
 Transform:
   m_ObjectHideFlags: 0
@@ -16797,6 +16794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f37d48badf4b2a48a87084f7a644567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Car: {fileID: 0}
 --- !u!1001 &1584512017
 PrefabInstance:
   m_ObjectHideFlags: 0

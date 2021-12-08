@@ -9,6 +9,7 @@ public class CheckPoints_human : MonoBehaviour
     int check;
     static int nbrChecks = 64;
     GameObject[] checkPoints = new GameObject[nbrChecks];
+    public GameObject Car;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +32,14 @@ public class CheckPoints_human : MonoBehaviour
     {
         if (String.Equals(other.gameObject.name,check.ToString()))
         {
-            Debug.Log("check passed : " + check.ToString());
             check++;
         
         }
-        else if (check>nbrChecks && String.Equals(other.gameObject.name, "FinishLine")){
-            //Debug.Log(check);
+        else if (String.Equals(other.gameObject.name, "FinishLine")){            
+            CarController Controller = Car.GetComponent<CarController>();
+            StaticClass.HumanName = Controller.name;
+            TimeSpan ts = TimeSpan.FromSeconds(Controller.time);
+            StaticClass.HumanTime = ts.ToString("m\\:ss\\:ff");
             SceneManager.LoadScene(3);
         }
     }
