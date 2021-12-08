@@ -5524,7 +5524,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534928458}
-  m_LocalRotation: {x: 0.27544886, y: -0.000000018055335, z: 0.000000010025325, w: 0.96131575}
+  m_LocalRotation: {x: 0.27544883, y: 0.000000015026197, z: 5.4636823e-10, w: 0.96131575}
   m_LocalPosition: {x: 3.7, y: 2.951, z: 16.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9526,7 +9526,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.27544886, y: -0.000000018055335, z: 0.000000010025325, w: 0.96131575}
+  m_LocalRotation: {x: 0.27544883, y: 0.000000015026197, z: 5.4636823e-10, w: 0.96131575}
   m_LocalPosition: {x: 3.7, y: 2.951, z: 16.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16722,6 +16722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584411535}
   - component: {fileID: 1584411534}
+  - component: {fileID: 1584411536}
   m_Layer: 9
   m_Name: Car Human
   m_TagString: Untagged
@@ -16784,6 +16785,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1584411536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584411533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f37d48badf4b2a48a87084f7a644567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1584512017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17157,7 +17170,7 @@ PrefabInstance:
     - target: {fileID: 1460995544745083362, guid: 7697938ed68c74a7db84fb48e762cd95,
         type: 3}
       propertyPath: m_Name
-      value: 1
+      value: check1
       objectReference: {fileID: 0}
     - target: {fileID: 1460995544745083362, guid: 7697938ed68c74a7db84fb48e762cd95,
         type: 3}
