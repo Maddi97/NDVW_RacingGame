@@ -7,7 +7,7 @@ public class CarController : MonoBehaviour
 
     public Rigidbody theRB;
 
-    public float forwardAcc=3f, reverseAcc=2f, maxSpeed=100f, turnStrenght=10, gravityForce = 10f, dragOnGround = 3f;
+    public float forwardAcc=3f, reverseAcc=2f, maxSpeed=100f, turnStrenght=50, gravityForce = 10f, dragOnGround = 3f;
 
     public KeyCode switch_to_easy1 = KeyCode.P;
     public KeyCode switch_to_easy2 = KeyCode.O;
