@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CarController : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class CarController : MonoBehaviour
     public float maxWheelTurn = 25f;
 
     public Countdown countDown;
+    public float time = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,8 @@ public class CarController : MonoBehaviour
         {
             return;
         }
+        time += Time.deltaTime;
+
         if(Input.GetKey(switch_to_easy1)){
             theRB.transform.position = simpleStart1_pos;
             transform.rotation = simpleStart1_rota;
