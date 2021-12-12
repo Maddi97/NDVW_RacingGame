@@ -18,15 +18,8 @@ public class CheckPoints_human : MonoBehaviour
             checkPoints[i] = GameObject.Find((i+1).ToString());
         }
         check = 1;
-        Debug.Log("Test");
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
