@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    public float MaxTimeToReachNextCheckpoint = 60f;
-    public float TimeLeft = 60f;
+    //public float MaxTimeToReachNextCheckpoint = 10f;
+    public float TimeLeft = 10f;
+    public float t = 0;
     
     public CarAgent carAgent;
     public Checkpoint nextCheckPointToReach;
@@ -29,19 +30,20 @@ public class CheckpointManager : MonoBehaviour
     public void ResetCheckpoints()
     {
         CurrentCheckpointIndex = 0;
-        TimeLeft = MaxTimeToReachNextCheckpoint;
+        //TimeLeft = MaxTimeToReachNextCheckpoint;
         
         SetNextCheckpoint();
     }
 
     private void Update()
     {
-        TimeLeft -= Time.deltaTime;
+        t += Time.deltaTime;
 
-        if (TimeLeft < 0f)
+        if (t > TimeLeft)
         {
             carAgent.AddReward(-1f);
             carAgent.EndEpisode();
+            t = 0f;
             UnityEngine.Debug.Log("Ended episode because of time");
 
         }
@@ -49,6 +51,8 @@ public class CheckpointManager : MonoBehaviour
 
     public void CheckPointReached(Checkpoint checkpoint)
     {
+        t -= 0.5f;
+
         if (nextCheckPointToReach != checkpoint) return;
 
 
@@ -82,7 +86,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void WallCollided(Wall wall)
     {
-        Debug.Log("Penalty for hitting Wall");
+        //Debug.Log("Penalty for hitting Wall");
         float reward = -0.01f;
         carAgent.AddReward(reward);
         carAgent._carController.theRB.velocity = carAgent._carController.theRB.velocity * 0.2f;
@@ -93,7 +97,7 @@ public class CheckpointManager : MonoBehaviour
     {
         if (Checkpoints.Count > 0)
         {
-            TimeLeft = MaxTimeToReachNextCheckpoint;
+            //TimeLeft = MaxTimeToReachNextCheckpoint;
             nextCheckPointToReach = Checkpoints[CurrentCheckpointIndex];
             
         }

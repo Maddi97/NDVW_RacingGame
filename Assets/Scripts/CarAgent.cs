@@ -10,19 +10,17 @@ public class CarAgent : Agent
     public CheckpointManager _checkpointManager;
     public CarController_simple _carController;
     public float total_speed_reward;
-    public float total_speed_penalty;
-    private float old_speed;
     //called once at the start
     public override void Initialize()
     {
         _carController = GetComponent<CarController_simple>();
         total_speed_reward = 0;
-        total_speed_penalty = 0;
     }
 
     //Called each time it has timed-out or has reached the goal
     public override void OnEpisodeBegin()
     {
+        total_speed_reward = 0;
         _checkpointManager.ResetCheckpoints();
         _carController.Respawn();
     }
@@ -35,17 +33,12 @@ public class CarAgent : Agent
         Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
         sensor.AddObservation(diff / 20f);
         float r = _carController.theRB.velocity.magnitude*0.01f;
-        if(_carController.theRB.velocity.magnitude < 0.4 * old_speed)
-        {
-            r = -0.5f;
-            total_speed_penalty = total_speed_penalty + r;
-        }
-        else{
-            total_speed_reward = total_speed_reward + r;
-        }
-        AddReward(r/1000);
-        UnityEngine.Debug.Log("total_speed_reward = : " + total_speed_reward);
-        UnityEngine.Debug.Log("total_speed_penaly = : " + total_speed_penalty);
+
+        total_speed_reward = total_speed_reward + r;
+        
+        AddReward(r);
+        //UnityEngine.Debug.Log("total_speed_reward = : " + total_speed_reward);
+        //UnityEngine.Debug.Log("total_speed_penaly = : " + total_speed_penalty);
     }
 
     //Processing the actions received

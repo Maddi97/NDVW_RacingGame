@@ -34,8 +34,8 @@ public class CarController_simple : MonoBehaviour
     }
     public void Respawn()
     {
-        Vector3 pos = _spawnPointManager.SelectRandomSpawnpoint().Item1;
-        Quaternion rotation = _spawnPointManager.SelectRandomSpawnpoint().Item2;
+          
+        (Vector3 pos, Quaternion rotation) = _spawnPointManager.SelectRandomSpawnpoint();
         theRB.MovePosition(pos);
         theRB.MoveRotation(rotation);
         transform.rotation = rotation;
@@ -47,6 +47,7 @@ public class CarController_simple : MonoBehaviour
     }
 
     public void accelerate(float input){
+        //Debug.Log(input);
         if(input > 0){
             speedInput = input*Acc*500f;
         }
