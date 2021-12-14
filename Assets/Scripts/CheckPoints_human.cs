@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement; 
+using Random=System.Random;
 
 public class CheckPoints_human : MonoBehaviour
 {
     int check;
     static int nbrChecks = 64;
     GameObject[] checkPoints = new GameObject[nbrChecks];
-    public GameObject Car;
+    public GameObject humanCar;
+    public GameObject aiCar;
 
     // Start is called before the first frame update
     void Start()
@@ -35,11 +37,21 @@ public class CheckPoints_human : MonoBehaviour
             check++;
         
         }
-        else if (String.Equals(other.gameObject.name, "FinishLine")){            
-            CarController Controller = Car.GetComponent<CarController>();
-            StaticClass.HumanName = Controller.name;
-            TimeSpan ts = TimeSpan.FromSeconds(Controller.time);
-            StaticClass.HumanTime = ts.ToString("m\\:ss\\:ff");
+        else if (String.Equals(other.gameObject.name, "FinishLine")){
+            CarController humanController = humanCar.GetComponent<CarController>();
+            TimeSpan tsHuman = TimeSpan.FromSeconds(humanController.time);
+            StaticClass.HumanName = humanController.name;
+            StaticClass.HumanTime = tsHuman.ToString("m\\:ss\\:ff");
+
+            // Just add a random time for the AI if human finishes first
+            CarController_simple aiController = aiCar.GetComponent<CarController_simple>();
+            Random r = new Random();
+            int range = 8;
+            double randomDouble = r.NextDouble() * range;
+            TimeSpan tsAi = TimeSpan.FromSeconds(humanController.time + randomDouble);
+            StaticClass.AiName = aiController.name;
+            StaticClass.AiTime = tsAi.ToString("m\\:ss\\:ff");            
+
             SceneManager.LoadScene(3);
         }
     }
