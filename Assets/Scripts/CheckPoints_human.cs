@@ -36,14 +36,25 @@ public class CheckPoints_human : MonoBehaviour
             StaticClass.HumanName = humanController.name;
             StaticClass.HumanTime = tsHuman.ToString("m\\:ss\\:ff");
 
-            // Just add a random time for the AI if human finishes first
-            CarController_simple aiController = aiCar.GetComponent<CarController_simple>();
-            Random r = new Random();
-            int range = 8;
-            double randomDouble = r.NextDouble() * range;
-            TimeSpan tsAi = TimeSpan.FromSeconds(humanController.time + randomDouble);
-            StaticClass.AiName = aiController.name;
-            StaticClass.AiTime = tsAi.ToString("m\\:ss\\:ff");            
+
+            if(humanController.AI_time == 0){
+                // Just add a random time for the AI if human finishes first
+                CarController_simple aiController = aiCar.GetComponent<CarController_simple>();
+                Random r = new Random();
+                int range = 8;
+                double randomDouble = r.NextDouble() * range;
+                TimeSpan tsAi = TimeSpan.FromSeconds(humanController.time + randomDouble);
+                StaticClass.AiName = aiController.name;
+                StaticClass.AiTime = tsAi.ToString("m\\:ss\\:ff");  
+            }
+            else{
+                // Just add a random time for the AI if human finishes first
+                CarController_simple aiController = aiCar.GetComponent<CarController_simple>();
+
+                TimeSpan tsAi = TimeSpan.FromSeconds(humanController.AI_time);
+                StaticClass.AiName = aiController.name;
+                StaticClass.AiTime = tsAi.ToString("m\\:ss\\:ff");  
+            }
 
             SceneManager.LoadScene(3);
         }

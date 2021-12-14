@@ -12,13 +12,23 @@ public class End_menu_texts : MonoBehaviour
     public Text time2;
     
     public void setTimes(string n1, string n2, string t1, string t2){
-        name1.text = n1;
-        name2.text = n2;
-        time1.text = t1;
-        time2.text = t2;
+        if(string.Compare(t1, t2) < 0){
+            name1.text = n1;
+            name2.text = n2;
+            time1.text = t1;
+            time2.text = t2;
+        }
+        else{
+            name1.text = n2;
+            name2.text = n1;
+            time1.text = t2;
+            time2.text = t1;
+        }
+        
     }
     void Start()
     {
+
         setTimes(StaticClass.HumanName, StaticClass.AiName, StaticClass.HumanTime, StaticClass.AiTime);
     }
 

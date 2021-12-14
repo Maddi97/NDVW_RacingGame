@@ -5629,7 +5629,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534928458}
-  m_LocalRotation: {x: 0.27544886, y: -0.000000018055335, z: 0.000000010025325, w: 0.96131575}
+  m_LocalRotation: {x: 0.27544883, y: 0.000000015026197, z: 5.4636823e-10, w: 0.96131575}
   m_LocalPosition: {x: 3.7, y: 2.951, z: 16.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5902,6 +5902,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1693166589}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &565105828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1460995544745083362, guid: 7697938ed68c74a7db84fb48e762cd95,
+    type: 3}
+  m_PrefabInstance: {fileID: 974458382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &565105829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565105828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5489362bc23ddae44b1c4632567e869e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carHuman: {fileID: 1584411533}
+  carAI: {fileID: 814504803}
 --- !u!1001 &579876174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7853,7 +7873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &814504804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9153,7 +9173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f37d48badf4b2a48a87084f7a644567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Car: {fileID: 1584411533}
+  humanCar: {fileID: 1584411533}
+  aiCar: {fileID: 814504803}
 --- !u!4 &902662095 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7593150849052836663, guid: d0ce9845d62a3b84a8f9832055865db9,
@@ -9473,7 +9494,7 @@ GameObject:
   - component: {fileID: 942996384}
   - component: {fileID: 942996383}
   m_Layer: 9
-  m_Name: Sphere
+  m_Name: Sphere_ai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9690,7 +9711,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.27544886, y: -0.000000018055335, z: 0.000000010025325, w: 0.96131575}
+  m_LocalRotation: {x: 0.27544883, y: 0.000000015026197, z: 5.4636823e-10, w: 0.96131575}
   m_LocalPosition: {x: 3.7, y: 2.951, z: 16.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9888,7 +9909,7 @@ PrefabInstance:
     - target: {fileID: 1435699791740439249, guid: 7697938ed68c74a7db84fb48e762cd95,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.93
+      value: 28.09
       objectReference: {fileID: 0}
     - target: {fileID: 1435699791740439249, guid: 7697938ed68c74a7db84fb48e762cd95,
         type: 3}
@@ -9953,7 +9974,7 @@ PrefabInstance:
     - target: {fileID: 7457397195635922632, guid: 7697938ed68c74a7db84fb48e762cd95,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7457397195635922632, guid: 7697938ed68c74a7db84fb48e762cd95,
         type: 3}
@@ -16963,7 +16984,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1584411535}
   - component: {fileID: 1584411534}
-  - component: {fileID: 1584411536}
   m_Layer: 9
   m_Name: Car Human
   m_TagString: Untagged
@@ -17009,6 +17029,7 @@ MonoBehaviour:
   maxWheelTurn: 25
   countDown: {fileID: 499933968}
   time: 0
+  AI_time: 0
 --- !u!4 &1584411535
 Transform:
   m_ObjectHideFlags: 0
@@ -17027,19 +17048,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1584411536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584411533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f37d48badf4b2a48a87084f7a644567, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Car: {fileID: 1584411533}
 --- !u!1001 &1584512017
 PrefabInstance:
   m_ObjectHideFlags: 0
