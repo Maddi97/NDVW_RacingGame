@@ -7,8 +7,9 @@ using System;
 public class DisplayName : MonoBehaviour
 {
     public TextMesh text;
-    public string car_name;
     public Countdown countDown;
+    public GameObject car;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,6 @@ public class DisplayName : MonoBehaviour
     void Update()
     {
         if (!countDown.notFinished())
-            text.text = car_name;
+            text.text = car.name;
     }
 }
