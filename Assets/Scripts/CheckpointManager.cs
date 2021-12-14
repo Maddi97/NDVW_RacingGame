@@ -42,7 +42,7 @@ public class CheckpointManager : MonoBehaviour
         {
             carAgent.AddReward(-1f);
             carAgent.EndEpisode();
-            UnityEngine.Debug.Log("Ended episode because of time");
+            //UnityEngine.Debug.Log("Ended episode because of time");
 
         }
     }
@@ -60,14 +60,14 @@ public class CheckpointManager : MonoBehaviour
         {
             reachedAllCheckpoints = true;
             carAgent.AddReward(0.5f);
-            UnityEngine.Debug.Log("rewarded and ended episode");
+            //UnityEngine.Debug.Log("rewarded and ended episode");
             carAgent.EndEpisode();
         }
         else
         {
             carAgent.AddReward((0.5f) / Checkpoints.Count);
             SetNextCheckpoint();
-            UnityEngine.Debug.Log("Setting new checkpoint, rewarded: ");
+            //UnityEngine.Debug.Log("Setting new checkpoint, rewarded: ");
         }
     }
 
@@ -82,7 +82,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void WallCollided(Wall wall)
     {
-        Debug.Log("Penalty for hitting Wall");
+        //Debug.Log("Penalty for hitting Wall");
         float reward = -0.01f;
         carAgent.AddReward(reward);
         carAgent._carController.theRB.velocity = carAgent._carController.theRB.velocity * 0.2f;

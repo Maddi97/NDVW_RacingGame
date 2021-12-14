@@ -44,8 +44,8 @@ public class CarAgent : Agent
             total_speed_reward = total_speed_reward + r;
         }
         AddReward(r/1000);
-        UnityEngine.Debug.Log("total_speed_reward = : " + total_speed_reward);
-        UnityEngine.Debug.Log("total_speed_penaly = : " + total_speed_penalty);
+        //UnityEngine.Debug.Log("total_speed_reward = : " + total_speed_reward);
+        //UnityEngine.Debug.Log("total_speed_penaly = : " + total_speed_penalty);
     }
 
     //Processing the actions received
