@@ -16963,6 +16963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584411535}
   - component: {fileID: 1584411534}
+  - component: {fileID: 1584411536}
   m_Layer: 9
   m_Name: Car Human
   m_TagString: Untagged
@@ -17038,7 +17039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f37d48badf4b2a48a87084f7a644567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Car: {fileID: 0}
+  Car: {fileID: 1584411533}
 --- !u!1001 &1584512017
 PrefabInstance:
   m_ObjectHideFlags: 0
