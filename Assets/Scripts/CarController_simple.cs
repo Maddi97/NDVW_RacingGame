@@ -7,7 +7,7 @@ public class CarController_simple : MonoBehaviour
     private SpawnPointManager _spawnPointManager;
     public Rigidbody theRB;
 
-    public float Acc=3f, maxSpeed=100f, turnStrenght=50, gravityForce = 10f, dragOnGround = 3f;
+    public float Acc=30f, maxSpeed=100f, turnStrenght=50, gravityForce = 10f, dragOnGround = 3f;
 
 
     
@@ -45,25 +45,27 @@ public class CarController_simple : MonoBehaviour
     }
 
     public void steer(float input){
+        if (countDown.notFinished())
+        {
+            return;
+        }
         turnInput = input;
     }
 
     public void accelerate(float input){
+        if (countDown.notFinished())
+        {
+            return;
+        }
         if(input > 0){
-            speedInput = input*Acc*500f;
+            speedInput = input*Acc*1000f;
         }
         
     }
 
     // Update is called once per frame
     void Update()
-    {
-
-        if (countDown.notFinished())
-        {
-            return;
-        }
-
+    {       
         //steer(Input.GetAxis("Horizontal"));
         //accelerate(Input.GetAxis("Vertical"));
 
@@ -75,7 +77,10 @@ public class CarController_simple : MonoBehaviour
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, (turnInput*maxWheelTurn)-180, leftFrontWheel.localRotation.eulerAngles.z);
         rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, turnInput*maxWheelTurn, rightFrontWheel.localRotation.eulerAngles.z);
 
+
         transform.position = theRB.transform.position;
+
+        
         //speedInput = 0f;
     }
 

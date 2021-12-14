@@ -45,6 +45,12 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Pause the game when hitting space bar
+        if (Input.GetKeyDown("space"))
+        {
+            Time.timeScale = 1-Time.timeScale;
+            return;
+        }
         if (countDown.notFinished())
         {
             return;
