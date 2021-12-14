@@ -20,6 +20,8 @@ public class CarController_simple : MonoBehaviour
 
     public Transform leftFrontWheel, rightFrontWheel;
     public float maxWheelTurn = 25f;
+    public Countdown countDown;
+
 
     //copied from the dude
     public void Awake()
@@ -56,6 +58,11 @@ public class CarController_simple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (countDown.notFinished())
+        {
+            return;
+        }
 
         //steer(Input.GetAxis("Horizontal"));
         //accelerate(Input.GetAxis("Vertical"));
