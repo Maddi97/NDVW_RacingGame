@@ -9653,9 +9653,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: ca30b0710d7e3492d8dffd30cb85383f, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: KartAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -16162,7 +16162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28a49a08e4cacc40bb97f3d7ebddacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLeft: 30
+  TimeLeft: 10
   t: 0
   carAgent: {fileID: 814504807}
   nextCheckPointToReach: {fileID: 0}
@@ -16981,7 +16981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &982428489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21346,7 +21346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1192517312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23940,7 +23940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28a49a08e4cacc40bb97f3d7ebddacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLeft: 10
+  TimeLeft: 6
   t: 0
   carAgent: {fileID: 1526259549}
   nextCheckPointToReach: {fileID: 0}
@@ -32251,7 +32251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1708379908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36967,7 +36967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1927491282
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -51,9 +51,9 @@ public class CheckpointManager : MonoBehaviour
 
     public void CheckPointReached(Checkpoint checkpoint)
     {
-        t -= 0.5f;
 
         if (nextCheckPointToReach != checkpoint) return;
+        t -= 1.7f;
 
 
         lastCheckpoint = Checkpoints[CurrentCheckpointIndex];
@@ -63,13 +63,13 @@ public class CheckpointManager : MonoBehaviour
         if (CurrentCheckpointIndex >= Checkpoints.Count)
         {
             reachedAllCheckpoints = true;
-            carAgent.AddReward(0.5f);
+            carAgent.AddReward(30f);
             UnityEngine.Debug.Log("rewarded and ended episode");
             carAgent.EndEpisode();
         }
         else
         {
-            carAgent.AddReward((0.5f) / Checkpoints.Count);
+            carAgent.AddReward((0.5f));
             SetNextCheckpoint();
             UnityEngine.Debug.Log("Setting new checkpoint, rewarded: ");
         }
