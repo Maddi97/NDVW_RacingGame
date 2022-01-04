@@ -32,10 +32,10 @@ public class CarAgent : Agent
     {
         Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
         sensor.AddObservation(diff / 20f);
-        float r = _carController.theRB.velocity.magnitude*0.01f;
+        float r = _carController.theRB.velocity.magnitude;
 
         total_speed_reward = total_speed_reward + r;
-        
+        Debug.Log("Speed: " + r);
         AddReward(r);
         //UnityEngine.Debug.Log("total_speed_reward = : " + total_speed_reward);
         //UnityEngine.Debug.Log("total_speed_penaly = : " + total_speed_penalty);
