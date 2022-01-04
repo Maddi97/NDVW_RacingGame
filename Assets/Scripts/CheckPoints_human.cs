@@ -30,7 +30,7 @@ public class CheckPoints_human : MonoBehaviour
             check++;
         
         }
-        else if (String.Equals(other.gameObject.name, "FinishLine")){
+        else if (check>=nbrChecks && String.Equals(other.gameObject.name, "FinishLine")){
             CarController humanController = humanCar.GetComponent<CarController>();
             TimeSpan tsHuman = TimeSpan.FromSeconds(humanController.time);
             StaticClass.HumanName = humanController.name;

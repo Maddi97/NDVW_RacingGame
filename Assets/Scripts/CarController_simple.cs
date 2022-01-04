@@ -7,7 +7,7 @@ public class CarController_simple : MonoBehaviour
     private SpawnPointManager _spawnPointManager;
     public Rigidbody theRB;
 
-    public float Acc=30f, maxSpeed=100f, turnStrenght=50, gravityForce = 10f, dragOnGround = 3f;
+    public float Acc=30f, maxSpeed=100f, turnStrenght=2f, gravityForce = 10f, dragOnGround = 3f;
 
 
     
@@ -70,8 +70,8 @@ public class CarController_simple : MonoBehaviour
         //accelerate(Input.GetAxis("Vertical"));
 
         if(grounded){
-            //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput*turnStrenght*Time.deltaTime * Input.GetAxis("Vertical") , 0f));
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * 10f, 0f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput*turnStrenght*Time.deltaTime *speedInput/1000f , 0f));
+            //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * 10f, 0f));
         }
 
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, (turnInput*maxWheelTurn)-180, leftFrontWheel.localRotation.eulerAngles.z);
