@@ -7,10 +7,10 @@ public class CarController_simple : MonoBehaviour
     private SpawnPointManager _spawnPointManager;
     public Rigidbody theRB;
 
-    public float Acc=3f, maxSpeed=100f, turnStrenght=50, gravityForce = 10f, dragOnGround = 3f;
+    public float Acc = 30f, maxSpeed = 100f, turnStrenght = 50, gravityForce = 10f, dragOnGround = 3f;
 
 
-    
+
     public float speedInput, turnInput;
     private bool grounded;
 
@@ -20,6 +20,8 @@ public class CarController_simple : MonoBehaviour
 
     public Transform leftFrontWheel, rightFrontWheel;
     public float maxWheelTurn = 25f;
+    public Countdown countDown;
+
 
     //copied from the dude
     public void Awake()
@@ -34,64 +36,82 @@ public class CarController_simple : MonoBehaviour
     }
     public void Respawn()
     {
-          
-        (Vector3 pos, Quaternion rotation) = _spawnPointManager.SelectRandomSpawnpoint();
+        Vector3 pos = _spawnPointManager.SelectRandomSpawnpoint().Item1;
+        Quaternion rotation = _spawnPointManager.SelectRandomSpawnpoint().Item2;
         theRB.MovePosition(pos);
         theRB.MoveRotation(rotation);
         transform.rotation = rotation;
         transform.position = pos - new Vector3(0, 0.4f, 0);
     }
 
-    public void steer(float input){
+    public void steer(float input)
+    {
+        //if (countDown.notFinished())
+        //{
+        //    return;
+        //}
         turnInput = input;
     }
 
-    public void accelerate(float input){
-        //Debug.Log(input);
-        if(input > 0){
-            speedInput = input*Acc*500f;
+    public void accelerate(float input)
+    {
+        //if (countDown.notFinished())
+        //{
+        //    return;
+        //}
+        if (input > 0)
+        {
+            speedInput = input * Acc * 1000f;
         }
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
         //steer(Input.GetAxis("Horizontal"));
         //accelerate(Input.GetAxis("Vertical"));
 
-        if(grounded){
+        if (grounded)
+        {
             //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput*turnStrenght*Time.deltaTime * Input.GetAxis("Vertical") , 0f));
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * 10f, 0f));
         }
 
-        leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, (turnInput*maxWheelTurn)-180, leftFrontWheel.localRotation.eulerAngles.z);
-        rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, turnInput*maxWheelTurn, rightFrontWheel.localRotation.eulerAngles.z);
+        leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, (turnInput * maxWheelTurn) - 180, leftFrontWheel.localRotation.eulerAngles.z);
+        rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, turnInput * maxWheelTurn, rightFrontWheel.localRotation.eulerAngles.z);
+
 
         transform.position = theRB.transform.position;
+
+
         //speedInput = 0f;
     }
 
-    private void FixedUpdate(){
+    private void FixedUpdate()
+    {
         grounded = false;
         RaycastHit hit;
 
-        if(Physics.Raycast(groundRayPoint.position, -transform.up, out hit, groundRayLength, whatIsGround)){
+        if (Physics.Raycast(groundRayPoint.position, -transform.up, out hit, groundRayLength, whatIsGround))
+        {
             grounded = true;
             transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         }
 
-        if(grounded){
+        if (grounded)
+        {
             theRB.drag = dragOnGround;
 
-            if(Mathf.Abs(speedInput) > 0 ){
+            if (Mathf.Abs(speedInput) > 0)
+            {
                 theRB.AddForce(transform.forward * speedInput);
             }
         }
-        else{
+        else
+        {
             theRB.drag = 0.1f;
-            theRB.AddForce(Vector3.up * -gravityForce* 100f);
+            theRB.AddForce(Vector3.up * -gravityForce * 100f);
         }
     }
 
